@@ -14,7 +14,6 @@ for line in f.readlines():
         my_move = wins[opp_move]
     else:
         my_move = opp_move
-    print(outcome_scores[outcome], move_scores[my_move], my_move)
     total_score += outcome_scores[outcome] + move_scores[my_move]
 
 f.close()
