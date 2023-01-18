@@ -1,5 +1,4 @@
 import re
-from copy import copy
 
 vals = {}
 f = open("day21.txt", "r")
