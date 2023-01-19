@@ -85,7 +85,7 @@ while abs(left - right) >= 1.01:
         right = m
     else:
         left = m
-print(f"value found via binary search: {m}")
+print(f"value found via bisection method: {m}")
 
 # alternatively...use the secant method to do it in nearly one shot
 # not sure why this takes 2 iterations instead of one, given that the function is linear
