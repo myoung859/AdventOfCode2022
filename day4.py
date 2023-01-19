@@ -7,7 +7,6 @@ overlaps = 0  # i.e. they intersect at all
 f = open("day4.txt", "r")
 for line in f.readlines():
     digits = [int(x) for x in re.findall(r"\d+", line)]
-    print(digits)
     # should always be 4 numbers...at least, for part 1
     first_range = set(range(digits[0], digits[1] + 1))
     second_range = set(range(digits[2], digits[3] + 1))
@@ -20,6 +19,6 @@ for line in f.readlines():
     elif len(intersect) != 0:
         # print(intersect)
         overlaps += 1
-print(total_pairs)
-print(overlaps)
+print(f"Number of pairs with complete overlap: {total_pairs}")
+print(f"Number of pairs with any overlap: {overlaps}")
 f.close()

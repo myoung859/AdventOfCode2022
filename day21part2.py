@@ -74,10 +74,13 @@ test_vals = copy(vals)
 
 left = 0  # known to yield result greater than 0
 right = 1e15  # tested to be less than 0
+print("Bisection Method")
+n = 1
 
 while abs(left - right) >= 1.01:
-    print(abs(left - right))
+
     m = (left + right) // 2
+    print(f"Iteration {n} with guess {m}")
     f = test_eval(copy(L), copy(test_vals), m)
     if abs(f) <= 1e-9:
         break
@@ -85,6 +88,7 @@ while abs(left - right) >= 1.01:
         right = m
     else:
         left = m
+    n += 1
 print(f"value found via bisection method: {m}")
 
 # alternatively...use the secant method to do it in nearly one shot
@@ -95,11 +99,11 @@ MAX_ITER = 50
 n = 1
 print("Secant Method")
 while n <= MAX_ITER:
-    print(f"Iteration {n}")
     x2 = x1 - test_eval(copy(L), copy(test_vals), x1) * (x1 - x0) / (
         test_eval(copy(L), copy(test_vals), x1)
         - test_eval(copy(L), copy(test_vals), x0)
     )
+    print(f"Iteration {n} with guess {x2}")
     f = test_eval(copy(L), copy(test_vals), x2)
     if abs(f) <= 1e-9:
         break
