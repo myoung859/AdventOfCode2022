@@ -77,7 +77,7 @@ right = 1e15  # tested to be less than 0
 print("Bisection Method")
 n = 1
 
-while abs(left - right) >= 1.01:
+while abs(left - right) >= 0.1:
 
     m = (left + right) // 2
     print(f"Iteration {n} with guess {m}")
@@ -93,6 +93,7 @@ print(f"value found via bisection method: {m}")
 
 # alternatively...use the secant method to do it in nearly one shot
 # not sure why this takes 2 iterations instead of one, given that the function is linear
+# probably floating point issues
 x0 = 0
 x1 = 1e15
 MAX_ITER = 50

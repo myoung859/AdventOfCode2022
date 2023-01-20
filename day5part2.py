@@ -11,9 +11,8 @@ for line in f.readlines():
             counter += 1
     else:
         break
-print(crates[0])
 crates = [c[::-1] for c in crates if c != []]
-print(crates)
+print(sum([len(c) for c in crates]))
 
 f = open("day5.txt", "r")
 for line in f.readlines():
@@ -23,10 +22,11 @@ for line in f.readlines():
         n = digits[0]
         source = digits[1]
         dest = digits[2]
-        for i in range(n):
-            crates[dest - 1].append(crates[source - 1].pop())
+        crates[dest - 1].extend(crates[source - 1][-n:])
+        crates[source - 1] = crates[source - 1][:-n]
 
 print(crates)
-message = [c[-1] for c in crates]
+print(sum([len(c) for c in crates]))
+message = [c[-1] for c in crates if len(c) != 0]
 print("".join(message))
 f.close()
